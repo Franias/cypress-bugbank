@@ -1,12 +1,12 @@
-import {cadastraUsuario, entraPaginaCadastro, validaCampos} from '../support/pageObjects/cadastro/cadastroTask.js';
+import {cadastraUsuario, entraPaginaCadastro, validaCampos} from '../support/pageObjects/cadastro/cadastroTask.cy';
 
 describe('Jornada de Usuário', () => {
     beforeEach(()=> {
-      cy.visit('/');
+      cy.visit('/');      
       entraPaginaCadastro();
     });
-    // it('Deve permitir que a pessoa usuária acesse a aplicação e realize um cadastro', () => {
-    //   cadastraUsuario();
-    //   cy.screenshot();
-    // });
+    it('Deve permitir que a pessoa usuária acesse a aplicação e realize um cadastro', () => {
+      cadastraUsuario();
+      // cy.screenshot();
+    }); 
 });

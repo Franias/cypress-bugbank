@@ -6,11 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.16.0",
     "cypress-bugbank": "file:"
+  },
+  "devDependencies": {
+    "allure-cypress": "^3.0.6"
   }
 }
