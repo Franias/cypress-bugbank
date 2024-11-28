@@ -1,9 +1,11 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from 'cypress';
+import { allureCypress } from 'allure-cypress/reporter';
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
+    baseUrl: 'https://bugbank.netlify.app/',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+      allureCypress(on);
+      },
   },
 });
