@@ -9,7 +9,7 @@ export const cadastraUsuario = () => {
     cy.get(cadastroPage.botao_conta_com_saldo).click({force: true});
     // cy.get(cadastroPage.botao_cadastro).click();
     cy.get('button').contains('Cadastrar').click({force: true});
-    cy.get(cadastroPage.mensagem_sucesso);
+    cy.get(cadastroPage.mensagem_sucesso);  
     cy.get(cadastroPage.x_modal).click();
 
 }
