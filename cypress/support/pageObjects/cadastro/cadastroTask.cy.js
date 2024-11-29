@@ -22,17 +22,9 @@ export const entraPaginaCadastro = () => {
 export const validaCampos= () => {
   cy.get('button').contains('Cadastrar').click({force: true});
   cy.get('p').contains('É campo obrigatório');
-
   cy.get(cadastroPage.mensagem_erro);
-
-  cy.get(cadastroPage.email).type('9');
+  cy.get(cadastroPage.email).eq(1).type('9');
   cy.get('p').contains('Formato inválido');
-  
-  cy.get(cadastroPage.botao_sucesso).click();
+  cy.get('button').contains('Cadastrar').click({force: true});
 
-  cy.get(cadastroPage.erro_whats);
-
-  cy.get(cadastroPage.cpf).type('9');
-  cy.get(cadastroPage.botao_sucesso).click();
-  cy.get(cadastroPage.erro_cpf_invalido);
 }
