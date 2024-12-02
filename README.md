@@ -24,4 +24,4 @@
 
 - [ ] Não deve permitir transação para uma mesma conta
       
-Site utilizado: https://buger-eats.vercel.app/
+Site utilizado: https://bugbank.netlify.app/home
