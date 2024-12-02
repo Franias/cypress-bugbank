@@ -1,6 +1,7 @@
-import { acessaHome, realizaTransferencia } from "../support/pageObjects/homeTask.cy";
+import { acessaHome } from "../support/pageObjects/homeTask.cy";
 import { logaUsuario,entraPaginaLogin } from "../support/pageObjects/login/loginTask.cy";
 import {cadastraUsuario} from '../support/pageObjects/cadastro/cadastroTask.cy';
+import { realizaTransferencia } from "../support/pageObjects/transferencia/transferenciaTask.cy";
 
 describe('Transação com sucesso', () => {
     beforeEach(()=> {
