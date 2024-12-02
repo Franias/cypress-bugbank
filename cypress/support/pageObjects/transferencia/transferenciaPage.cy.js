@@ -3,5 +3,7 @@ export const transferenciaPage = {
     numero_digito_input: 'input[name="digit"]',
     valor_transferencia: 'input[name="transferValue"]',
     descricao: 'input[name="description"]',
-    botao_transferir_agora: '#btn-TRANSFERÊNCIA'    
+    botao_transferir_agora: '#btn-TRANSFERÊNCIA'    ,
+    botao_fechar_modal: '#btnCloseModal',
+    botao_voltar: '#btnBack'
 }
