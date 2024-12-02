@@ -17,11 +17,11 @@
 - [x] Deve permitir que a pessoa usuária acesse a aplicação e realize um cadastro
 - [x] Não deve permitir que a pessoa usuária realize um cadastro
 
-- [x] Deve permitir que a pessoa usuária acesse a aplicação e realize um cadastro
-- [x] Não deve permitir que a pessoa usuária realize um cadastro
+- [x] Deve permitir que a pessoa usuária acesse a aplicação e realize um login
+- [x] Não deve permitir que a pessoa usuária realize um login
 
 - [x] Deve permitir realizar uma transação entre contas
 
-- [] Não deve permitir transação para uma mesma conta
+- [ ] Não deve permitir transação para uma mesma conta
       
 Site utilizado: https://buger-eats.vercel.app/
