@@ -47,11 +47,9 @@ export const realizaTransferencia = () => {
       });
     const valor = 100;
     cy.get(transferenciaPage.valor_transferencia).type(valor);
-    cy.get(transferenciaPage.descricao).type('Descricao teste');//.type(numeroConta);
+    cy.get(transferenciaPage.descricao).type('Descricao teste');
     cy.get('button').contains('Transferir agora').click({force: true});
     cy.get(transferenciaPage.botao_fechar_modal).click();
     cy.get(transferenciaPage.botao_voltar).click();
-
-    cy.log(homePage.saldo).text();
-
+    
 }
