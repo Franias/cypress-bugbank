@@ -5,8 +5,7 @@ import { loginPage } from "../login/loginPage.cy";
 
 
 const valor = 100;
-export const realizaTransferencia = () => {
-    
+export const realizaTransferencia = () => {    
     cy.get('#textAccountNumber').contains('Conta digital: ').should('not.be.disabled');
     let numeroConta;
     let digitoConta;
@@ -43,6 +42,7 @@ export const realizaTransferencia = () => {
         cy.get(loginPage.acessar).click();
 
         cy.get(homePage.botao_transferencia).click();
+
         cy.get(transferenciaPage.numero_conta_input).type(numeroConta);
         cy.get(transferenciaPage.numero_digito_input).type(digitoConta);
 
@@ -67,6 +67,7 @@ export const validaCamposContaInvalidaOuInexistente = () => {
 }
 
 export const validaCamposParaMesmaConta = () => {
+  cy.wait(1000);
   cy.get(homePage.numero_conta).then(($span) => {
     const txt = $span.text();
     cy.log(txt);
@@ -81,12 +82,8 @@ export const validaCamposParaMesmaConta = () => {
     cy.get(transferenciaPage.descricao).type('Descricao teste');
     cy.get('button').contains('Transferir agora').click({force: true});
 
-    cy.get(transferenciaPage.texto_modal).then(($p) => {
-      const txt = $p.text();
-      cy.log(txt);
-      cy.get('#modalText').should('have.value', 'Nao pode transferir pra mesmo conta');
-    });
+    cy.get(transferenciaPage.texto_modal).should('contain', 'Nao pode transferir pra mesmo conta')
+
   });
   
-
 }
