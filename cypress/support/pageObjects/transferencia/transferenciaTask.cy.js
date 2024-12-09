@@ -3,6 +3,8 @@ import { transferenciaPage } from "./transferenciaPage.cy";
 import { cadastroPage } from "../cadastro/cadastroPage.cy";
 import { loginPage } from "../login/loginPage.cy";
 
+
+const valor = 100;
 export const realizaTransferencia = () => {
     
     cy.get('#textAccountNumber').contains('Conta digital: ').should('not.be.disabled');
@@ -45,11 +47,46 @@ export const realizaTransferencia = () => {
         cy.get(transferenciaPage.numero_digito_input).type(digitoConta);
 
       });
-    const valor = 100;
     cy.get(transferenciaPage.valor_transferencia).type(valor);
     cy.get(transferenciaPage.descricao).type('Descricao teste');
     cy.get('button').contains('Transferir agora').click({force: true});
     cy.get(transferenciaPage.botao_fechar_modal).click();
     cy.get(transferenciaPage.botao_voltar).click();
     
+}
+
+
+export const validaCamposContaInvalidaOuInexistente = () => {
+  cy.get(homePage.botao_transferencia).click();
+  cy.get(transferenciaPage.numero_conta_input).type('invalido');
+  cy.get(transferenciaPage.numero_digito_input).type('invalido');
+  cy.get(transferenciaPage.valor_transferencia).type(valor);
+  cy.get(transferenciaPage.descricao).type('Descricao teste');
+  cy.get('button').contains('Transferir agora').click({force: true});
+
+}
+
+export const validaCamposParaMesmaConta = () => {
+  cy.get(homePage.numero_conta).then(($span) => {
+    const txt = $span.text();
+    cy.log(txt);
+    let numeroConta2 = txt.split('\-')[0];
+    let digitoConta2 = txt.split('\-')[1];
+    cy.log(numeroConta2);
+    cy.log(digitoConta2);
+    cy.get(homePage.botao_transferencia).click();
+    cy.get(transferenciaPage.numero_conta_input).type(numeroConta2);
+    cy.get(transferenciaPage.numero_digito_input).type(digitoConta2);
+    cy.get(transferenciaPage.valor_transferencia).type(valor);
+    cy.get(transferenciaPage.descricao).type('Descricao teste');
+    cy.get('button').contains('Transferir agora').click({force: true});
+
+    cy.get(transferenciaPage.texto_modal).then(($p) => {
+      const txt = $p.text();
+      cy.log(txt);
+      cy.get('#modalText').should('have.value', 'Nao pode transferir pra mesmo conta');
+    });
+  });
+  
+
 }

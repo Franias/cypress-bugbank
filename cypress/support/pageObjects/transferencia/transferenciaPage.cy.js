@@ -5,5 +5,6 @@ export const transferenciaPage = {
     descricao: 'input[name="description"]',
     botao_transferir_agora: '#btn-TRANSFERÊNCIA'    ,
     botao_fechar_modal: '#btnCloseModal',
-    botao_voltar: '#btnBack'
+    botao_voltar: '#btnBack',
+    texto_modal :'#modalText'
 }
