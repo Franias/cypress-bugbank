@@ -10,16 +10,16 @@ describe('Transação com sucesso', () => {
       entraPaginaLogin();
       logaUsuario();
     });
-    // it('Deve permitir realizar uma transação entre contas', () => {
-    //   acessaHome();
-    //   realizaTransferencia();
-    // });
+    it('Deve permitir realizar uma transação entre contas', () => {
+      acessaHome();
+      realizaTransferencia();
+    });
     it('Não deve permitir transação para uma mesma conta', () => {
       acessaHome();
       validaCamposParaMesmaConta();
     });
-    // it('Não deve permitir realizar uma transação com conta inválida ou inexistente', () => {
-    //   acessaHome();
-    //   validaCamposContaInvalidaOuInexistente();
-    // });
+    it('Não deve permitir realizar uma transação com conta inválida ou inexistente', () => {
+      acessaHome();
+      validaCamposContaInvalidaOuInexistente();
+    });
 });

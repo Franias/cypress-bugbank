@@ -42,6 +42,10 @@ export const realizaTransferencia = () => {
         cy.get(loginPage.acessar).click();
 
         cy.get(homePage.botao_transferencia).click();
+        
+        cy.location().should((loc) => {
+          expect(loc.pathname).to.eq('/transfer')
+        })
 
         cy.get(transferenciaPage.numero_conta_input).type(numeroConta);
         cy.get(transferenciaPage.numero_digito_input).type(digitoConta);
@@ -58,6 +62,9 @@ export const realizaTransferencia = () => {
 
 export const validaCamposContaInvalidaOuInexistente = () => {
   cy.get(homePage.botao_transferencia).click();
+  cy.location().should((loc) => {
+    expect(loc.pathname).to.eq('/transfer')
+  })
   cy.get(transferenciaPage.numero_conta_input).type('invalido');
   cy.get(transferenciaPage.numero_digito_input).type('invalido');
   cy.get(transferenciaPage.valor_transferencia).type(valor);
@@ -76,6 +83,9 @@ export const validaCamposParaMesmaConta = () => {
     cy.log(numeroConta2);
     cy.log(digitoConta2);
     cy.get(homePage.botao_transferencia).click();
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq('/transfer')
+    })
     cy.get(transferenciaPage.numero_conta_input).type(numeroConta2);
     cy.get(transferenciaPage.numero_digito_input).type(digitoConta2);
     cy.get(transferenciaPage.valor_transferencia).type(valor);
